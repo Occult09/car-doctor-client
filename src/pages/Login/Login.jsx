@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import img from '../../assets/images/login/login.svg'
 import { useContext } from 'react';
-import { AuthCotext } from '../../providers/AuthProvider';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
 
-    const { signIn } = useContext(AuthCotext)
+    const { signIn } = useContext(AuthContext)
 
     const handleLogin = e => {
         e.preventDefault()
