@@ -31,19 +31,19 @@ const AuthProvider = ({ children }) => {
             const userEmail = currentUser?.email || user?.email
             const loggedUser = { email: userEmail }
             setUser(currentUser)
-            console.log('current user', currentUser)
+            // console.log('current user', currentUser)
             setLoading(false)
             // if usre exist then issue a token
             if (currentUser) {
-                axios.post('http://localhost:5000/jwt', loggedUser, { withCredentials: true })
+                axios.post('https://car-doctor-server-azure-iota.vercel.app/jwt', loggedUser, { withCredentials: true })
                     .then(res => {
-                        console.log(res.data)
+                        // console.log(res.data)
                     })
             }
             else {
-                axios.post('http://localhost:5000/logout', loggedUser, { withCredentials: true })
+                axios.post('https://car-doctor-server-azure-iota.vercel.app/logout', loggedUser, { withCredentials: true })
                     .then(res => {
-                        console.log(res.data)
+                        // console.log(res.data)
                     })
             }
         })
