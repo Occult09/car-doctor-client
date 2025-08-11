@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const CheckOut = () => {
@@ -7,6 +7,7 @@ const CheckOut = () => {
     const service = useLoaderData()
     const { title, price, _id, img } = service
     const { user } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const handleBookService = e => {
         e.preventDefault()
@@ -38,6 +39,7 @@ const CheckOut = () => {
                 if(data.insertedId){
                     alert("Service booked successfully!")
                 }
+                navigate('/bookings')
             })
     }
 
